@@ -7,7 +7,7 @@ TEMÁTICA: La tematica es una agencia de seguros. Donde se encuentran los Presta
 
 El usuario es "webadmin" y la contraseña "admin"
 
-En el apartado de Seguros si el usuario apreta sobre el nombre del Seguro, podra ver algunos datos.
+En el apartado de Seguros si el usuario apreta sobre el nombre del Seguro, podra ver algunos datos, como una descripcion y los datos anteriormente mostrados en la tabla.
 
 La base de datos cuentas con las tablas: 
 usuarios, seguros, prestadores y reviews
