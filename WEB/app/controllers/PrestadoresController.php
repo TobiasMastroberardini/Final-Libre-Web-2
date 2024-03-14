@@ -95,7 +95,8 @@ class PrestadoresController
         $seguros = $this->segurosModel->getSegurosByPrestadorId($id);
         if (count($seguros) == 0 && AuthHelper::isLogged()) {
             $this->model->deletePrestador($id);
+        }else {
+            $this->errorView->showError("El prestador aun tiene seguros");
         }
-        header('Location: ' . BASE_URL . '/prestadores');
     }
 }
