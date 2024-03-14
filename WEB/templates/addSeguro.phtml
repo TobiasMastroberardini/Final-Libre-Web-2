@@ -1,0 +1,40 @@
+<?php require_once './templates/header.phtml' ?>
+
+<form method='POST' action='add-new-seguro'>
+    <div class="form-group">
+        <label for="nombreSeguro">Nombre</label>
+        <input type="text" class="form-control" id="nombreSeguro" name='nombreSeguro' placeholder="Nombre del seguro">
+    </div>
+    <div class="form-group">
+        <label for="fechaLanzamiento">Fecha lanzamiento</label>
+        <input type="date" class="form-control" id="fechaLanzamiento" name='fechaLanzamiento' placeholder="Fecha de creación">
+    </div>
+    <div class="form-group">
+        <label for="prestadorId">Prestador</label>
+        <select class="form-control" name='prestadorId' id='prestadorId'>
+            <?php foreach ($prestadores as $prestador) : ?>
+                <option value='<?= $prestador->prestadorId ?>'><?= $prestador->nombrePrestador ?></option>
+            <?php endforeach ?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="coberturaMaxima">Cobertura maxima</label>
+        <input type="number" min='0' class="form-control" id="coberturaMaxima" name='coberturaMaxima' placeholder="Cobertura maxima">
+    </div>
+    <div class="form-group">
+        <label for="descripcionSeguro">Descripción del seguro</label>
+        <textarea class="form-control" id="descripcionSeguro" name='descripcionSeguro' placeholder="Descripción del seguro"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input type="text" class="form-control" id="imagen" name='imagen' placeholder="Inserte el link de la imagen">
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+    <?php if ($message != null) : ?>
+        <div>
+            <p><?= $message ?></p>
+        </div>
+    <?php endif ?>
+</form>
+
+<?php require_once './templates/footer.phtml' ?>

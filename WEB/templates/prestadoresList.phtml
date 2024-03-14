@@ -1,0 +1,35 @@
+<?php require './templates/header.phtml' ?>
+
+<?php if (AuthHelper::isLogged()) : ?>
+    <div class='detalles-prestadores'>
+        <a href='add-prestador' class='btn btn-success'>+ Agregar</a>
+    </div>
+<?php endif ?>
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha de creación</th>
+            <th scope="col">Origen</th>
+            <?php if (AuthHelper::isLogged()) : ?>
+                <th scope="col">Edición</th>
+            <?php endif ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($prestadores as $prestador) : ?>
+            <tr>
+                <td><?= $prestador->nombrePrestador ?></td>
+                <td><?= $prestador->fechaCreacion ?></td>
+                <td><?= $prestador->origen ?></td>
+                <?php if (AuthHelper::isLogged()) : ?>
+                    <td><a href='edit-prestador/<?= $prestador->prestadorId ?>' class="btn btn-warning">Editar</a><a href='delete-prestador/<?= $prestador->prestadorId ?>' class="btn btn-danger">Borrar</a></td>
+                <?php endif ?>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
+
+
+<?php require './templates/footer.phtml' ?>

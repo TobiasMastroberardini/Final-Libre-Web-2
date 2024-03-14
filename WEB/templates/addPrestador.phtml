@@ -1,0 +1,24 @@
+<?php require_once './templates/header.phtml' ?>
+
+<form method='POST' action='add-new-prestador'>
+  <div class="form-group">
+    <label for="nombrePrestador">Nombre</label>
+    <input type="text" class="form-control" id="nombrePrestador" name='nombrePrestador' placeholder="Nombre del prestador">
+  </div>
+  <div class="form-group">
+    <label for="fechaCreacion">Fecha de creación</label>
+    <input type="date" class="form-control" id="fechaCreacion" name='fechaCreacion' placeholder="Fecha de creación">
+  </div>
+  <div class="form-group">
+    <label for="origen">Origen</label>
+    <input type="text" class="form-control" id="origen" name='origen' placeholder="País de procedencia">
+  </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+  <?php if ($message != null) : ?>
+    <div>
+      <p><?= $message ?></p>
+    </div>
+  <?php endif ?>
+</form>
+
+<?php require_once './templates/footer.phtml' ?>

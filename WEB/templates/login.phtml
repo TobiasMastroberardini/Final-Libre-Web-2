@@ -1,0 +1,20 @@
+<?php require './templates/header.phtml' ?>
+
+<form method="POST" action="auth">
+  <div class="form-group">
+    <label for="usuario">Email</label>
+    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+  </div>
+  <div class="form-group">
+    <label for="contrasenia">Contraseña</label>
+    <input type="password" class="form-control" id="contrasenia" name="contrasenia" placeholder="Contraseña">
+  </div>
+  <?php if ($message != null) : ?>
+    <div>
+      <p class="text-warning"><?= $message ?></p>
+    </div>
+  <?php endif ?>
+  <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>
+
+<?php require './templates/footer.phtml' ?>

@@ -1,0 +1,47 @@
+<?php require './templates/header.phtml' ?>
+
+<div class='detalles-seguros'>
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filtrar por Prestador
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="seguros">Mostrar todos</a>
+        <?php foreach ($prestadores as $prestador) : ?>
+            <a class="dropdown-item" href="seguros/prestador/<?= $prestador->prestadorId ?>"><?= $prestador->nombrePrestador ?></a>
+        <?php endforeach ?>
+    </div>
+    <?php if (AuthHelper::isLogged()) : ?>
+        <div>
+            <a href='add-seguro' class='btn btn-success'>+ Agregar</a>
+        </div>
+    <?php endif ?>
+</div>
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Prestador</th>
+            <th scope="col">Fecha de lanzamiento</th>
+            <th scope="col">Cobertura maxima</th>
+            <?php if (AuthHelper::isLogged()) : ?>
+                <th scope="col">Edición</th>
+            <?php endif ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($seguros as $seguro) : ?>
+            <tr>
+                <td><a class="listed-seguro-title" href='seguro/<?= $seguro->seguroId ?>'><?= $seguro->nombreSeguro ?></a></td>
+                <td><?= $seguro->nombrePrestador ?></td>
+                <td><?= $seguro->fechaLanzamiento ?></td>
+                <td><?= $seguro->coberturaMaxima ?></td>
+                <?php if (AuthHelper::isLogged()) : ?>
+                    <td><a href='edit-seguro/<?= $seguro->seguroId ?>' class="btn btn-warning">Editar</a><a href='delete-seguro/<?= $seguro->seguroId ?>' class="btn btn-danger">Borrar</a></td>
+                <?php endif ?>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
+
+<?php require './templates/footer.phtml' ?>

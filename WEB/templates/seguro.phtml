@@ -1,0 +1,21 @@
+<?php require './templates/header.phtml' ?>
+<div class="contenedor-seguro">
+    <h1 class='titulo-seguro'><?= $seguro->nombreSeguro ?></h1>
+    <div class="contenedor-imagen-seguro">
+        <img class="imagen-seguro" src="<?= $seguro->imagen ?>">
+    </div>
+    <p class="fecha-seguro">
+        Fecha de lanzamiento: <?= $seguro->fechaLanzamiento ?>
+    </p>
+    <p class="prestador-seguro">
+        Prestador: <?= $seguro->nombrePrestador ?>
+    </p>
+    <p class="descripcion-seguro">
+        <?= $seguro->descripcionSeguro ?>
+    </p>
+    <p class="coberturaMaxima-seguro">
+        Cobertura maxima: <?= $seguro->coberturaMaxima ?>
+    </p>
+
+</div>
+<?php require './templates/footer.phtml' ?>
