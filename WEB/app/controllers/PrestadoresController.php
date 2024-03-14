@@ -2,6 +2,7 @@
 require_once './app/models/PrestadoresModel.php';
 require_once "./app/models/SegurosModel.php";
 require_once './app/views/PrestadoresView.php';
+require_once './app/views/ErrorView.php';
 require_once "./app/helpers/AuthHelper.php";
 
 class PrestadoresController
@@ -9,12 +10,14 @@ class PrestadoresController
     private $model;
     private $segurosModel;
     private $view;
+    private $errorView;
 
     public function __construct()
     {
         $this->model = new PrestadoresModel();
         $this->segurosModel = new SegurosModel();
         $this->view = new PrestadoresView();
+        $this->errorView = new ErrorView();
     }
 
     public function showPrestadorById($prestadorId)
